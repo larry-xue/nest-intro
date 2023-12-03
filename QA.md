@@ -1,0 +1,11 @@
+- Q: nestjs已经有了controller和service，为什么还需要modules
+- Q: 所以说imports属性中是这个模块所依赖的其他模块嘛？imports中只能输入传模块嘛
+    - A: 是的，imports中是当前模块所依赖的其他模块，并且imports中最好只包括@Modules修饰的模块
+- Q: @Module装饰器中的controller属性存在的意义是显示指定当前模块对外暴露的接口嘛
+    - A: 是的，您的理解是正确的。在 Nest.js 中，@Module 装饰器的 controllers 属性用于明确指定当前模块中包含的控制器（Controllers）。这些控制器负责处理进入应用程序的 HTTP 请求，并返回响应。
+- Q: 那provider是用来辅助controller的嘛
+    - A: 是的，providers 在 Nest.js 中扮演了非常重要的角色，它们通常用来辅助 controllers。在 Nest.js 中，providers 可以是服务（Services）、仓库（Repositories）、工厂（Factories）、助手（Helpers）等任何可以注入的类。
+- Q: provider会被自动注入到controller中嘛
+    - A: provider的class需要用Injectable修饰，然后在modules中注册服务，最后是在控制器中注入（controller的构造函数）。
+- Q: 假设我要实现一个util module, 这里面包含各种公用方法，我是不是就可以把本模块的多个Service导出？如果这是个工具模块，那controller还有用吗
+    - A: 是的，那就可以不使用controller
