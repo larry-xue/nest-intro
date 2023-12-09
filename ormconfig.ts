@@ -5,11 +5,11 @@ import { DataSource } from "typeorm";
 
 export const dataSource = new DataSource({
   type: 'postgres',
-  host: 'bubble.db.elephantsql.com',
+  host: process.env.DATABASE_HOST,
   port: 5432,
-  username: 'jnpqvrdj',
-  password: 'TyoFxGJ4fGZRmqjP8sjHDj_gMKICRnyM',
-  database: 'jnpqvrdj',
+  username: process.env.DATABASE_USER,
+  password: process.env.DATABASE_PASSWORD,
+  database: process.env.DATABASE,
   entities: ['dist/**/*.entity.js'],
   migrations: ['dist/migrations/*.js'],
   migrationsTableName: "custom_migration_table",
