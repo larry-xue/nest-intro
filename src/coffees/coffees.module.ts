@@ -12,5 +12,6 @@ import { EventEntity } from 'src/events/entities/event.entity/event.entity';
   imports: [
     TypeOrmModule.forFeature([CoffeesEntity, FlavorEntity, EventEntity]),
   ],
+  exports: [CoffeesService],
 })
 export class CoffeesModule {}
