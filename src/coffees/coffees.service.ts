@@ -82,16 +82,16 @@ export class CoffeesService {
     this.coffeeRepository.remove([coffee]);
   }
 
-  async recommandCoffee(coffee: CoffeesEntity) {
+  async recommendCoffee(coffee: CoffeesEntity) {
     const queryRunner = this.connection.createQueryRunner();
 
     await queryRunner.connect();
     await queryRunner.startTransaction();
     try {
-      coffee.recommandations++;
+      coffee.recomendations++;
 
       const recommendEvent = new EventEntity();
-      recommendEvent.name = 'recommand_coffee';
+      recommendEvent.name = 'recommend_coffee';
       recommendEvent.type = 'coffee';
       recommendEvent.payload = { coffeeId: coffee.id };
 

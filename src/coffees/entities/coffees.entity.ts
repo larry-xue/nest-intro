@@ -12,14 +12,14 @@ export class CoffeesEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ default: '' })
   title: string;
 
   @Column()
   brand: string;
 
   @Column({ default: 0 })
-  recommandations: number;
+  recomendations: number;
 
   @JoinTable()
   @ManyToMany(() => FlavorEntity, (flavor) => flavor.name, { cascade: true })
