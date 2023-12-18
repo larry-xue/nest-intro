@@ -10,6 +10,7 @@ async function bootstrap() {
       forbidNonWhitelisted: true,
       transform: true,
       transformOptions: {
+        // If set to true class-transformer will attempt conversion based on TS reflected type
         enableImplicitConversion: true,
       },
     }),
